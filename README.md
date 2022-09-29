@@ -1,4 +1,4 @@
-# Store Invetory Manager
+# Store Inventory Manager
 
 ## Project Description
 
@@ -24,9 +24,17 @@ The features in this program will include:
 - Check stock of an item
 
 This project is of interest to me since I am involved
-in small businesses that currently use messy excel sheets
+in small businesses that currently use messy Excel sheets
 and feel limited with what they can do with them. Making
 a program to help simplify these basic tasks would remove
 the learning curve of Excel and allow business owners to
 focus purely on their business.
 
+## User Stories
+
+- As a user, I want to be able to add a new item to the store.
+- As a user, I want to select an item and view and modify the stock of the item.
+- As a user, I want to be able to select my store and view all available items.
+- As a user, I want to be able to select a customer and sell them an item from the store.
+- As a user, I want to be able to select a store and check the current profit of the store.
+- As a user, I want to be able to select a customer and view and pay their tab.
