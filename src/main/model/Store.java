@@ -28,8 +28,7 @@ public class Store {
      */
     public void addItem(String name, int price, int stock) {
         if (findItem(name) == null) {
-            Item newItem = new Item(name, price, stock);
-            inventory.add(newItem);
+            inventory.add(new Item(name, price, stock));
         }
     }
 
@@ -55,10 +54,10 @@ public class Store {
         }
     }
 
-    /*
+    /* NOTE: Not a nessecary function but could be cool to implement later
      * EFFECTS: returns a list of all items at the store with their name and item information
      */
-    public List<String> allItems() {
+    /*public List<String> allItems() {
         List<String> itemInfo = new ArrayList<>();
         String info;
         String price;
@@ -70,7 +69,7 @@ public class Store {
             itemInfo.add(info);
         }
         return itemInfo;
-    }
+    }*/
 
     /*
      * REQUIRES: amount > 0, name has non zero length
@@ -114,6 +113,10 @@ public class Store {
 
     public int getCurrentRevenue() {
         return currentRevenue;
+    }
+
+    public List<Item> getInventory() {
+        return inventory;
     }
 }
 
