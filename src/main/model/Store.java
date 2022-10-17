@@ -6,7 +6,6 @@ import java.util.List;
 //Represents a store that has a list of items, name, and a profit
 public class Store {
 
-    private final String name;
     private int currentRevenue;
     private List<Item> inventory;
 
@@ -16,8 +15,7 @@ public class Store {
      * EFFECTS: Creates a store with a name storeName; has no items
      *          and zero profit
      */
-    public Store(String storeName) {
-        this.name = storeName;
+    public Store() {
         currentRevenue = 0;
         inventory = new ArrayList<>();
     }
@@ -26,10 +24,12 @@ public class Store {
      * MODIFIES: this
      * EFFECTS: adds item to store if there is not already an item with that name
      */
-    public void addItem(String name, int price, int stock) {
-        if (findItem(name) == null) {
+    public boolean addItem(String name, int price, int stock) {
+        boolean validAdd = (findItem(name) == null);
+        if (validAdd) {
             inventory.add(new Item(name, price, stock));
         }
+        return validAdd;
     }
 
     /*
@@ -76,7 +76,7 @@ public class Store {
      * EFFECTS: sells an amount of given item and increases revenue to match the sale.
      *          returns true if purchase is successful and false otherwise
      */
-    public boolean makePurchase(int amount, String name) {
+    public boolean makePurchase(String name, int amount) {
         boolean success = false;
         Item item = findItem(name);
 
@@ -107,9 +107,6 @@ public class Store {
         return item;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getCurrentRevenue() {
         return currentRevenue;

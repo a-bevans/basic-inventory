@@ -11,27 +11,30 @@ class StoreTest {
 
     @BeforeEach
     void setup() {
-        store = new Store("MyStore");
+        store = new Store();
     }
 
     @Test
     void addItemNotInStoreTest() {
-        store.addItem("Drink", 1, 20);
+        boolean validAdd = store.addItem("Drink", 1, 20);
 
         assertEquals(1, store.getInventory().size());
         assertEquals("Drink", store.getInventory().get(0).getName());
+        assertTrue(validAdd);
     }
 
     @Test
     void addItemInStoreTest() {
-        store.addItem("Drink", 1, 20);
-        store.addItem("Drink", 2, 6);
+        boolean validAdd1 = store.addItem("Drink", 1, 20);
+        boolean validAdd2 = store.addItem("Drink", 2, 6);
         Item first = store.getInventory().get(0);
 
         assertEquals(1, store.getInventory().size());
         assertEquals("Drink", first.getName());
         assertEquals(1, first.getPrice());
         assertEquals(20, first.getStock());
+        assertTrue(validAdd1);
+        assertFalse(validAdd2);
     }
 
     @Test
@@ -97,7 +100,7 @@ class StoreTest {
     @Test
     void makePurchaseItemNotInStoreTest() {
         store.addItem("Drink", 5, 20);
-        boolean success = store.makePurchase(2, "Food");
+        boolean success = store.makePurchase("Food", 2);
 
         assertFalse(success);
         assertEquals(0, store.getCurrentRevenue());
@@ -106,7 +109,7 @@ class StoreTest {
     @Test
     void makePurchaseNotEnoughStockTest() {
         store.addItem("Drink", 5, 20);
-        boolean success = store.makePurchase(21, "Drink");
+        boolean success = store.makePurchase("Drink", 21);
 
         assertFalse(success);
         assertEquals(0, store.getCurrentRevenue());
@@ -115,7 +118,7 @@ class StoreTest {
     @Test
     void makePurchaseJustEnoughStockTest() {
         store.addItem("Drink", 5, 20);
-        boolean success = store.makePurchase(20, "Drink");
+        boolean success = store.makePurchase( "Drink", 20);
 
         assertTrue(success);
         assertEquals(100, store.getCurrentRevenue());
@@ -124,7 +127,7 @@ class StoreTest {
     @Test
     void makePurchaseEnoughStockTest() {
         store.addItem("Drink", 5, 20);
-        boolean success = store.makePurchase(5, "Drink");
+        boolean success = store.makePurchase( "Drink", 5);
 
         assertTrue(success);
         assertEquals(25, store.getCurrentRevenue());
