@@ -33,10 +33,6 @@ public class Item {
         this.price = price;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     public String getName() {
         return name;
     }
