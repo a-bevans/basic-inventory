@@ -57,7 +57,7 @@ public class Store {
     /* NOTE: Not a nessecary function but could be cool to implement later
      * EFFECTS: returns a list of all items at the store with their name and item information
      */
-    /*public List<String> allItems() {
+    public List<String> allItems() {
         List<String> itemInfo = new ArrayList<>();
         String info;
         String price;
@@ -65,11 +65,11 @@ public class Store {
         for (Item item : inventory) {
             price = Integer.toString(item.getPrice());
             stock = Integer.toString(item.getStock());
-            info = item.getName() + ", $" + price + ", " + stock + "left";
+            info = item.getName() + ", $" + price + ", " + stock + " left";
             itemInfo.add(info);
         }
         return itemInfo;
-    }*/
+    }
 
     /*
      * REQUIRES: amount > 0, name has non zero length

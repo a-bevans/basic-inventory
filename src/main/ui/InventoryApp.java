@@ -58,9 +58,9 @@ public class InventoryApp {
     }
 
     private void doItems() {
-        List<Item> inventory = myStore.getInventory();
-        for (Item item: inventory) {
-            System.out.println(item.getName());
+        List<String> allItems = myStore.allItems();
+        for (String item : allItems) {
+            System.out.println(item);
         }
     }
 
