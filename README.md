@@ -26,3 +26,5 @@ curve of Excel and allow business owners to focus purely on their business.
 - As a user, I want to select an item and view and modify the stock and sale price.
 - As a user, I want to be able to select my store and view all available items.
 - As a user, I want to be able to select an item and sell an amount of the item from the store.
+- As a user, I want to be able to save my store to a file.
+- As a user, I want to be able to load my store from a file.
