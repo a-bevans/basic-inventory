@@ -132,4 +132,12 @@ class StoreTest {
         assertTrue(success);
         assertEquals(25, store.getCurrentRevenue());
     }
+
+    @Test
+    void allItemsTest() {
+        store.addItem("Drink", 1, 20);
+        store.addItem("Food", 2, 6);
+        String output =  store.allItems();
+        assertEquals("Drink, $1, 20 left\n" + "Food, $2, 6 left\n", output);
+    }
 }
