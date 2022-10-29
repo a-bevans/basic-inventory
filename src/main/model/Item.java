@@ -1,7 +1,11 @@
 package model;
 
+
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents an item in the store with a name, cost, sales price, stock
-public class Item {
+public class Item implements Writable {
     private final String name;
     private int price;
     private int stock;
@@ -27,6 +31,15 @@ public class Item {
     public int sellItem(int amount) {
         this.stock -= amount;
         return (this.price * amount);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("price", price);
+        json.put("stock", stock);
+        return json;
     }
 
     public void updatePrice(int price) {

@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 //Represents a store that has a list of items, name, and a profit
-public class Store {
+public class Store implements Writable {
 
     private int currentRevenue;
     private List<Item> inventory;
@@ -57,16 +61,16 @@ public class Store {
     /* NOTE: Not a nessecary function but could be cool to implement later
      * EFFECTS: returns a list of all items at the store with their name and item information
      */
-    public List<String> allItems() {
-        List<String> itemInfo = new ArrayList<>();
+    public String allItems() {
+        String itemInfo = "";
         String info;
         String price;
         String stock;
         for (Item item : inventory) {
             price = Integer.toString(item.getPrice());
             stock = Integer.toString(item.getStock());
-            info = item.getName() + ", $" + price + ", " + stock + " left";
-            itemInfo.add(info);
+            info = item.getName() + ", $" + price + ", " + stock + " left\n";
+            itemInfo = itemInfo + info;
         }
         return itemInfo;
     }
@@ -107,6 +111,29 @@ public class Store {
         return item;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("currentRevenue", currentRevenue);
+        json.put("items", itemsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray itemsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Item item : inventory) {
+            jsonArray.put(item.toJson());
+        }
+
+        return jsonArray;
+    }
+
+
+    public void setCurrentRevenue(int currentRevenue) {
+        this.currentRevenue = currentRevenue;
+    }
 
     public int getCurrentRevenue() {
         return currentRevenue;
@@ -115,5 +142,6 @@ public class Store {
     public List<Item> getInventory() {
         return inventory;
     }
+
 }
 

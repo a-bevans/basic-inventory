@@ -2,7 +2,11 @@ package ui;
 
 import model.Item;
 import model.Store;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,9 +14,13 @@ public class InventoryApp {
     //This code was adapted from the TellerApp example code.
     private Store myStore;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/store.json";
 
     public InventoryApp() {
         runInventory();
+
     }
 
     private void runInventory() {
@@ -41,26 +49,57 @@ public class InventoryApp {
         myStore = new Store();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     private void processCommand(String command) {
         if (command.equals("a")) {
             doAddItem();
-        } else if (command.equals("s")) {
+        } else if (command.equals("p")) {
             doSell();
         } else if (command.equals("m")) {
             doModify();
         } else if (command.equals("i")) {
             doItems();
+        } else if (command.equals("r")) {
+            doRevenue();
+        } else if (command.equals("s")) {
+            doSave();
+        } else if (command.equals("l")) {
+            doLoad();
         } else {
             System.out.println("Selection not valid...");
         }
     }
 
     private void doItems() {
-        List<String> allItems = myStore.allItems();
-        for (String item : allItems) {
-            System.out.println(item);
+        System.out.println(myStore.allItems());
+    }
+
+    private void doRevenue() {
+        System.out.println(myStore.getCurrentRevenue());
+    }
+
+    private void doSave() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myStore);
+            jsonWriter.close();
+            System.out.println("Saved store to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void doLoad() {
+        try {
+            myStore = jsonReader.read();
+            System.out.println("Loaded store from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
@@ -125,9 +164,12 @@ public class InventoryApp {
     private void displayMenu() {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> add an item");
-        System.out.println("\ts -> sell an item");
+        System.out.println("\tp -> sell an item");
+        System.out.println("\tr -> check revenue");
         System.out.println("\tm -> modify an item");
         System.out.println("\ti -> view all items");
+        System.out.println("\ts -> save your store");
+        System.out.println("\tl -> load your store");
         System.out.println("\tq -> quit");
     }
 }

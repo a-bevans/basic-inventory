@@ -1,0 +1,15 @@
+{
+    "currentRevenue": 0,
+    "items": [
+        {
+            "price": 5,
+            "name": "Food",
+            "stock": 40
+        },
+        {
+            "price": 4,
+            "name": "Drink",
+            "stock": 26
+        }
+    ]
+}
