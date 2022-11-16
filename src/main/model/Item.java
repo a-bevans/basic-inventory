@@ -6,7 +6,7 @@ import persistence.Writable;
 
 //Represents an item in the store with a name, cost, sales price, stock
 public class Item implements Writable {
-    private final String name;
+    private String name;
     private int price;
     private int stock;
 
@@ -56,6 +56,18 @@ public class Item implements Writable {
 
     public int getStock() {
         return stock;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
 }

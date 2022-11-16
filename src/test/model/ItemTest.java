@@ -25,4 +25,22 @@ class ItemTest {
         assertEquals(18, item.getStock());
         assertEquals(2, revenue);
     }
+
+    @Test
+    void setName() {
+        item.setName("Food");
+        assertEquals("Food", item.getName());
+    }
+
+    @Test
+    void setPrice() {
+        item.setPrice(15);
+        assertEquals(15, item.getPrice());
+    }
+
+    @Test
+    void setStock() {
+        item.setStock(15);
+        assertEquals(15, item.getStock());
+    }
 }

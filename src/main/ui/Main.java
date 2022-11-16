@@ -2,6 +2,7 @@ package ui;
 
 public class Main {
     public static void main(String[] args) {
-        new InventoryApp();
+        GUI gui = new GUI();
+        gui.setVisible(true);
     }
 }
