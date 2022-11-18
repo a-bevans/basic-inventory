@@ -94,6 +94,7 @@ public class GUI extends JFrame {
         });
     }
 
+    //EFFECT: Save store to a file when the Save Store button is pressed
     private void saveStoreClick() {
         try {
             jsonWriter.open();
@@ -105,6 +106,7 @@ public class GUI extends JFrame {
         }
     }
 
+    //EFFECT: Loads store from a file when the Load Store button is pressed
     private void loadStoreClick() {
         try {
             myStore = jsonReader.read();
@@ -116,6 +118,7 @@ public class GUI extends JFrame {
         }
     }
 
+    //EFFECTS: Sells selected item from store when the Sell button is pressed
     private void buttonSellClick() {
         int index = listItem.getSelectedIndex();
         if (index >= 0) {
@@ -125,6 +128,7 @@ public class GUI extends JFrame {
         }
     }
 
+    //EFFECTS: Saves entered parameters to a new item which is added to the store
     private void buttonNewClick(ActionEvent e) {
         String name = itemName.getText();
         int price = Integer.parseInt(itemPrice.getText());
@@ -133,6 +137,7 @@ public class GUI extends JFrame {
         refreshItemList();
     }
 
+    //EFFECTS: Updates an existing objects fields when save existing button is pressed
     private void buttonExistClick(ActionEvent e) {
         int index = listItem.getSelectedIndex();
         if (index >= 0) {
@@ -144,6 +149,7 @@ public class GUI extends JFrame {
         }
     }
 
+    //EFFECTS: Loads item fields into the text boxes when item is selected from the list
     private void listSelectClick(ListSelectionEvent e) {
         int index = listItem.getSelectedIndex();
         if (index >= 0) {
@@ -157,6 +163,7 @@ public class GUI extends JFrame {
         }
     }
 
+    //EFFECTS: Updates item list to make sure all items are shown
     public void refreshItemList() {
         listItemModel.removeAllElements();
         System.out.println("Removing all items,");
@@ -164,11 +171,6 @@ public class GUI extends JFrame {
             System.out.println("Adding item to inventory:" + i.getName());
             listItemModel.addElement(i.getName());
         }
-    }
-
-    public void addItem(Item i) {
-        myStore.addItem(i.getName(),i.getPrice(), i.getStock());
-        refreshItemList();
     }
 
 }
