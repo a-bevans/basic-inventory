@@ -1,6 +1,6 @@
 package model;
 
-import exceptions.NoItemException;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;

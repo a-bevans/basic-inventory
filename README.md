@@ -33,6 +33,6 @@ curve of Excel and allow business owners to focus purely on their business.
 
 - You can add new items to a store by filling in the fields and clicking "Save New".
 - You can edit items in a store by selecting the item, filling in the fields, and clicking "Save Existing".
-- You can locate my visual component by...
+- You can locate my visual component by opening the application and finding the shopping cart icon.
 - You can save the state of the store by clicking "Save Store".
 - You can reload the state of the store by clicking "Load Store".
