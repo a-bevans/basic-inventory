@@ -33,6 +33,7 @@ public class Store implements Writable {
         boolean validAdd = (findItem(name) == null);
         if (validAdd) {
             inventory.add(new Item(name, price, stock));
+            EventLog.getInstance().logEvent(new Event("Added " + name + " to the store."));
         }
         return validAdd;
     }

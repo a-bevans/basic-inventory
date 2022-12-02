@@ -119,21 +119,21 @@ public class InventoryApp {
         String name = getItemName();
         System.out.println("New item price?");
         int price = input.nextInt();
-        myStore.updatePrice(name,price);
+        myStore.updatePrice(name, price);
     }
 
     private void doRestock() {
         String name = getItemName();
         System.out.println("Amount of new stock?");
         int stock = input.nextInt();
-        myStore.restockItem(name,stock);
+        myStore.restockItem(name, stock);
     }
 
     private void doSell() {
         String name = getItemName();
         System.out.println("Amount of item purchased?");
         int amount = input.nextInt();
-        boolean validSale = myStore.makePurchase(name,amount);
+        boolean validSale = myStore.makePurchase(name, amount);
         if (validSale) {
             System.out.println("Sale successful!");
         } else {

@@ -30,6 +30,7 @@ public class Item implements Writable {
     //EFFECT: removes amount of item from the stock and returns profit from the sale
     public int sellItem(int amount) {
         this.stock -= amount;
+        EventLog.getInstance().logEvent(new Event(amount + " of " + name + " sold."));
         return (this.price * amount);
     }
 
@@ -59,14 +60,17 @@ public class Item implements Writable {
     }
 
     public void setName(String name) {
+        EventLog.getInstance().logEvent(new Event(this.name + " name changed to " + name));
         this.name = name;
     }
 
     public void setPrice(int price) {
+        EventLog.getInstance().logEvent(new Event(this.name + " price changed to " + price));
         this.price = price;
     }
 
     public void setStock(int stock) {
+        EventLog.getInstance().logEvent(new Event(this.name + " stock changed to " + stock));
         this.stock = stock;
     }
 

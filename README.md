@@ -36,3 +36,33 @@ curve of Excel and allow business owners to focus purely on their business.
 - You can locate my visual component by opening the application and finding the shopping cart icon.
 - You can save the state of the store by clicking "Save Store".
 - You can reload the state of the store by clicking "Load Store".
+
+## Phase 4: Task 2
+
+Fri Dec 02 14:30:47 PST 2022
+Added Food to the store.
+
+
+Fri Dec 02 14:30:47 PST 2022
+Added Drink to the store.
+
+
+Fri Dec 02 14:30:47 PST 2022
+Added Beef to the store.
+
+
+Fri Dec 02 14:30:47 PST 2022
+Added Pork to the store.
+
+
+Fri Dec 02 14:30:57 PST 2022
+Pork name changed to Porky
+
+
+Fri Dec 02 14:30:57 PST 2022
+Porky stock changed to 32
+
+
+Fri Dec 02 14:31:43 PST 2022
+Added Bacon to the store.
+
