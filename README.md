@@ -66,3 +66,10 @@ Porky stock changed to 32
 Fri Dec 02 14:31:43 PST 2022
 Added Bacon to the store.
 
+## Phase 4: Task 3
+
+Looking at my UML diagram, a glaring opportunity to refactor my code is in the GUI class. The GUI class has a contains
+list association relationship with the Item class. However, GUI also has a contains association relationship with store,
+which also has a contains list association relationship with the Item class. Due to this redundancy, the GUI should be
+refactored to use the stores relationship with the list of items to reduce coupling. This could be done by better
+utilizing the getInventory method in store in the GUI class so the request inventory field is not necessary.
