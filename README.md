@@ -37,7 +37,7 @@ curve of Excel and allow business owners to focus purely on their business.
 - You can save the state of the store by clicking "Save Store".
 - You can reload the state of the store by clicking "Load Store".
 
-## Phase 4: Task 2
+## Example Action Log
 
 Fri Dec 02 14:30:47 PST 2022
 Added Food to the store.
@@ -66,7 +66,7 @@ Porky stock changed to 32
 Fri Dec 02 14:31:43 PST 2022
 Added Bacon to the store.
 
-## Phase 4: Task 3
+## Mistakes/Improvements to make
 
 Looking at my UML diagram, a glaring opportunity to refactor my code is in the GUI class. The GUI class has a contains
 list association relationship with the Item class. However, GUI also has a contains association relationship with store,
