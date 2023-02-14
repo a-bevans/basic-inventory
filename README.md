@@ -29,7 +29,7 @@ curve of Excel and allow business owners to focus purely on their business.
 - As a user, I want to be able to save my store to a file.
 - As a user, I want to be able to load my store from a file.
 
-## Instructions for Grader
+## Instructions for User
 
 - You can add new items to a store by filling in the fields and clicking "Save New".
 - You can edit items in a store by selecting the item, filling in the fields, and clicking "Save Existing".
